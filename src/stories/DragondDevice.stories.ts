@@ -1,6 +1,4 @@
- 
-import {
-  DragondDevice,
+import DragondDevice, {
   DragondDeviceProps,
 } from "../components/DragondDevice/DragondDevice";
 import type { Meta, StoryObj } from "@storybook/react";
@@ -11,6 +9,7 @@ const meta = {
   parameters: {
     layout: "centered",
   },
+  args: {},
   tags: ["autodocs"],
 } satisfies Meta<DragondDeviceProps>;
 

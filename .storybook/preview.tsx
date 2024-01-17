@@ -1,4 +1,6 @@
+import React from "react";
 import type { Preview } from "@storybook/react";
+import { DragondContextProvider } from "../src/components/Dragond/DragondProvider";
 
 const preview: Preview = {
   parameters: {
@@ -10,6 +12,13 @@ const preview: Preview = {
       },
     },
   },
+  decorators: [
+    (Story) => (
+      <DragondContextProvider>
+        <Story />
+      </DragondContextProvider>
+    ),
+  ],
 };
 
 export default preview;
