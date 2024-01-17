@@ -1,0 +1,64 @@
+{
+  "name": "dragond-react",
+  "version": "0.1.1",
+  "description": "",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "types": "dist/types/index.d.ts",
+  "author": "kyechan99",
+  "license": "MIT",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/kyechan99/dragond-react/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kyechan99/dragond-react.git"
+  },
+  "keywords": [
+    "react",
+    "dragond",
+    "drag"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "build": "rollup -c",
+    "build:types": "tsc --emitDeclarationOnly"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.23.3",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@storybook/addon-essentials": "7.6.8",
+    "@storybook/addon-interactions": "7.6.8",
+    "@storybook/addon-links": "7.6.8",
+    "@storybook/addon-onboarding": "1.0.10",
+    "@storybook/blocks": "7.6.8",
+    "@storybook/react": "7.6.8",
+    "@storybook/react-webpack5": "7.6.8",
+    "@storybook/test": "7.6.8",
+    "@types/react": "^18.2.48",
+    "@types/react-dom": "^18.2.18",
+    "@types/rollup-plugin-peer-deps-external": "^2",
+    "rollup": "^4.9.5",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-terser": "^7.0.2",
+    "storybook": "7.6.8",
+    "typescript": "^5.3.3"
+  },
+  "files": [
+    "/dist"
+  ]
+}
