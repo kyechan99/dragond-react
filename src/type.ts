@@ -1,9 +1,9 @@
-export type DDPosition = {
+export type DragondPosition = {
   posX: number;
   posY: number;
 };
 
-export type DDData = DDPosition & {
+export type DragondData = DragondPosition & {
     isOpen: boolean;
     content: string;
 }

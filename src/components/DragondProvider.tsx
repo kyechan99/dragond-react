@@ -1,17 +1,17 @@
-import { DDData, DDPosition } from "@/type";
-import React, { useContext, useReducer } from "react";
-import { createContext, useState, Dispatch } from "react";
+import React, { useContext, useReducer, createContext, Dispatch } from "react";
 
-const DataStateContext = createContext<DDData | null>(null);
+import { DragondData, DragondPosition } from "@/type";
+
+const DataStateContext = createContext<DragondData | null>(null);
 
 type Action =
-  | { type: "POS"; payload: DDPosition }
+  | { type: "POS"; payload: DragondPosition }
   | { type: "OPEN"; payload: boolean };
 
 type DataDispatch = Dispatch<Action>;
 const DataDispatchContext = createContext<DataDispatch | undefined>(undefined);
 
-function dataReducer(state: DDData, action: Action): DDData {
+function dataReducer(state: DragondData, action: Action): DragondData {
   switch (action.type) {
     case "POS":
       return { ...state, ...action.payload, isOpen: true };
@@ -22,11 +22,7 @@ function dataReducer(state: DDData, action: Action): DDData {
   }
 }
 
-export function DragondContextProvider({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export function DragondProvider({ children }: { children: React.ReactNode }) {
   const [data, dispatch] = useReducer(dataReducer, {
     isOpen: false,
     posX: 0,
@@ -43,13 +39,13 @@ export function DragondContextProvider({
   );
 }
 
-export const useDataState = () => {
+export const useDragondState = () => {
   const data = useContext(DataStateContext);
   if (!data) throw new Error("DataStateContext not found");
   return data;
 };
 
-export const useDataDispatch = () => {
+export const useDragondDispatch = () => {
   const dispatch = useContext(DataDispatchContext);
   if (!dispatch) throw new Error("DataDispatchContext not found");
   return dispatch;
