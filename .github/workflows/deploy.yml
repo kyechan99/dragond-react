@@ -1,0 +1,40 @@
+name: Storybook
+
+on:
+  push:
+    branches: main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    concurrency:
+      group: ${{ github.workflow }}
+      cancel-in-progress: true
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+          cache: 'yarn'
+          cache-dependency-path: ./yarn.lock
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile # == npm ci
+        if: steps.cache.outputs.cache-hit != 'true'
+
+      - name: Build
+        run: |
+          yarn build-storybook
+          mkdir ./build
+          mv ./storybook-static ./build/storybook
+          
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build

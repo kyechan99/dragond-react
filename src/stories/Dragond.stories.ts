@@ -7,14 +7,12 @@ const meta = {
   component: Dragond,
   parameters: {
     layout: "centered",
-    componentSubtitle: "Dragond는 드래그를 인식할 영역입니다.",
+    componentSubtitle: "`Dragond` is the area where you will **recognize the drag**.",
     docs: {
       description: {
-        component: `상위 요소에 DragondProvider로 인해 종속되어야 합니다.
-        <br/>
-        혼자서는 아무런 역할을 하지 않습니다.
-        <br/>
-        DragondDevice와 같이 사용되어야 합니다.`,
+        component: `It must depend on the parent element's 'DragondProvider'.<br/>
+        Alone it does nothing.<br/>
+        Must be used with 'DragondDevice'.`,
       },
     },
   },
